@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Landing Page</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .header {
+            background-color: #ff66b2; /* Pink color */
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            animation: slideDown 1s ease-out; /* Animation for header */
+        }
+
+        .header .logo {
+            font-size: 1.8em;
+            color: white;
+            display: inline-block;
+        }
+
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #fff9f9;
+        }
+
+        .hero {
+            background: linear-gradient(to bottom right, #ff66b2, #ff3399); /* Gradient pink */
+            color: white;
+            text-align: center;
+            padding: 120px 20px;
+            margin-top: 60px; /* To account for fixed header */
+            position: relative;
+            animation: fadeIn 1.5s ease-out; /* Animation for hero section */
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin: 0;
+            font-weight: bold;
+            opacity: 0;
+            animation: fadeInUp 1s 0.5s forwards; /* Animation for hero heading */
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            margin: 20px 0;
+            opacity: 0;
+            animation: fadeInUp 1s 1s forwards; /* Animation for hero paragraph */
+        }
+
+        .cta-button {
+            background-color: #cc29a5; /* Darker pink */
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 50px;
+            display: inline-block;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+            opacity: 0;
+            animation: fadeInUp 1s 1.5s forwards; /* Animation for CTA button */
+        }
+
+        .cta-button:hover {
+            background-color: #ff66b2; /* Original pink */
+        }
+
+        .section {
+            padding: 60px 20px;
+            text-align: center;
+            background: #ffffff;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 800px; /* Restrict section width */
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards; /* Animation for sections */
+        }
+
+        .section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #ff3399; /* Dark pink */
+            animation: fadeInUp 1s 0.5s forwards; /* Animation for section heading */
+        }
+
+        .section p {
+            font-size: 1.2em;
+            color: #666;
+        }
+
+        .contact-form {
+            margin: 0 auto;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px; /* Ensure form width */
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards; /* Animation for contact form */
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        .contact-form button {
+            background-color: #ff3399; /* Darker pink */
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: #cc29a5; /* Even darker pink */
+        }
+
+        footer {
+            background-color: #ff66b2; /* Pink color */
+            color: white;
+            text-align: center;
+            padding: 15px 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+            animation: slideUp 1s ease-out; /* Animation for footer */
+        }
+
+        .footer-content {
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.5s forwards; /* Animation for footer content */
+        }
+
+        /* Animations */
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav>
+            <div class="logo">MySite</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Welcome to Our Modern Landing Page</h1>
+            <p>Experience innovation and creativity like never before.</p>
+            <a href="#contact" class="cta-button">Contact Us</a>
+        </div>
+    </section>
+    <section class="section" id="about">
+        <h2>About Us</h2>
+        <p>We provide cutting-edge solutions to meet your needs. Our team of experts is here to help you succeed.</p>
+    </section>
+    
+    <section class="section" id="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-form">
+            <form action="#">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Shrutika. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>  
+<!DOCTYPE html>
+    <section id="testimonials">
+        <h2>What Our Client Says</h2>
+        <blockquote>
+            <p>I've found great ideas from this mysite .It was so helpful. </p>
+            <cite>- Riya C</cite>
+        </blockquote>
+
+
+    <section id="signup">
+
+        <h2>Join Us Today!</h2>
+
+        <p>Ready to start your journey? Sign up now and take the first step towards inovation and you!</p>
